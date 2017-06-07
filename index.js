@@ -12,4 +12,5 @@ var ENV = require('./env.js');
 var sql = require('mysql');
 var connection = sql.createConnection(ENV);
 var io = require('socket.io')(require('http').createServer().listen(8080));
-require('./ws/index.js')(io, connection, transporter);
+var fs = require('fs');
+require('./ws/index.js')(io, connection, transporter, fs);
